@@ -17,6 +17,7 @@ public class Programa {
 		Scanner sc = new Scanner(System.in);
 
 		try {
+			
 			do {
 				System.out.println("-----Lista de Contatos-----\n");
 				System.out.println("Selecione a opção desejada:\n");
@@ -90,13 +91,16 @@ public class Programa {
 					System.out.println("Informe o id a ser excluído: ");
 					int valorId = sc.nextInt();
 
-					contatos.removeIf(listaContatos -> listaContatos.getIdContato() == valorId);
+					if (contatos.removeIf(listaContatos -> listaContatos.getIdContato() == valorId)) {
 
-					System.out.println("Excluído com sucesso!!!");
+						System.out.println("Excluído com sucesso!!!");
+					} else {
+						System.out.println("Id não localizado!!!");
 
-				}
+					}
 
 					break;
+				}
 				}
 
 			} while (opcao > 0 && opcao < 4);
